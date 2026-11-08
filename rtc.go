@@ -75,6 +75,7 @@ func newRTC(api *webrtc.API, conf *webrtc.Configuration, onCandidate func(*webrt
 		if r.onTimeout != nil {
 			r.onTimeout()
 		}
+		r.pc.Close()
 	})
 	pc.OnConnectionStateChange(func(state webrtc.PeerConnectionState) {
 		switch state {
