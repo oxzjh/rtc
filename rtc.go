@@ -87,7 +87,7 @@ func newRTC(api *webrtc.API, conf *webrtc.Configuration, onCandidate func(*webrt
 			if r.onConnected != nil {
 				r.onConnected()
 			}
-		case webrtc.PeerConnectionStateDisconnected, webrtc.PeerConnectionStateFailed, webrtc.PeerConnectionStateClosed:
+		case webrtc.PeerConnectionStateFailed, webrtc.PeerConnectionStateClosed:
 			pc.OnICECandidate(nil)
 			pc.OnConnectionStateChange(nil)
 			if timer != nil {
